@@ -7,7 +7,21 @@ import org.springframework.stereotype.Repository;
 public class OrderRepository extends HashMapRepository<Order, Long> {
 
     @Override
-    <S extends Order> Long getEntityId(S order) {
-        return order.getId();
+
+        <S extends Order> Long getEntityId(S order) {
+
+            return order.getId();
+
+        }
+
+    
+
+        @Override
+
+        public void deleteAllById(Iterable<? extends Long> ids) {
+
+            ids.forEach(this::deleteById);
+
+        }
+
     }
-}
