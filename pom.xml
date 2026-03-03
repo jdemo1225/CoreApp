@@ -9,6 +9,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <org-springframework-boot.spring-boot-starter-web.version>2.5.12</org-springframework-boot.spring-boot-starter-web.version>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -118,4 +119,13 @@
             <artifactId>validation-api</artifactId>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${org-springframework-boot.spring-boot-starter-web.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
