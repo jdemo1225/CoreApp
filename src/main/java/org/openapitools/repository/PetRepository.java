@@ -37,31 +37,12 @@ public class PetRepository extends HashMapRepository<Pet, Long> {
     }
 
     public List<Pet> findPetsByTags(List<String> tags) {
-
-            return entities.values().stream()
-
-                    .filter(entity -> entity.getTags() != null)
-
-                    .filter(entity -> entity.getTags().stream()
-
-                            .map(Tag::getName)
-
-                            .anyMatch(tags::contains)
-
-                    )
-
-                    .collect(Collectors.toList());
-
-        }
-
-    
-
-        @Override
-
-        public void deleteAllById(Iterable<? extends Long> ids) {
-
-            ids.forEach(this::deleteById);
-
-        }
-
+        return entities.values().stream()
+                .filter(entity -> entity.getTags() != null)
+                .filter(entity -> entity.getTags().stream()
+                        .map(Tag::getName)
+                        .anyMatch(tags::contains)
+                )
+                .collect(Collectors.toList());
     }
+}
