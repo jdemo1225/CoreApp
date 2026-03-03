@@ -7,21 +7,7 @@ import org.springframework.stereotype.Repository;
 public class UserRepository extends HashMapRepository<User, String> {
 
     @Override
-
-        <S extends User> String getEntityId(S user) {
-
-            return user.getUsername();
-
-        }
-
-    
-
-        @Override
-
-        public void deleteAllById(Iterable<? extends String> ids) {
-
-            ids.forEach(this::deleteById);
-
-        }
-
+    <S extends User> String getEntityId(S user) {
+        return user.getUsername();
     }
+}
